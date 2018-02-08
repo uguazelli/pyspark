@@ -4,9 +4,11 @@ from pyspark import SparkContext
 from pyspark.sql import SQLContext
 from pyspark.sql.functions import floor,months_between,when,udf,max,substring,lit,col,regexp_replace
 from pyspark.sql.types import IntegerType,FloatType,DateType
-from lib import odd_even
 
-	
+
+def odd_even(id):
+	return 0 if (id % 2 == 0) else 1
+		
 def main():
 
 	sc = SparkContext()

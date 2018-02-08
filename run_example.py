@@ -29,7 +29,7 @@ def main():
 	df_result = df.withColumn("id_odd", is_odd_red( df["id"] ) )	
 	df_result.show()
 	
-	df_result_simplify = df_result.select('id','id_odd')
+	df_result_simplify = df_result.select('id','id_odd').write.saveAsTable("temporal_process",mode="overwrite")
 	df_result_simplify.show()
 	
 if __name__ == "__main__":
